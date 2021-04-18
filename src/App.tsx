@@ -6,6 +6,7 @@ import { Wrapper, StyledButton } from './App.styles';
 import { getProducts } from './api/getProducts';
 import { CartItemType } from './models/CartItem';
 import Item from './components/Item/Item';
+import Cart from './components/Cart/Cart';
 
 const App = () => {
   const [cartIsOpen, setCartIsOpen] = useState(false);
@@ -17,6 +18,8 @@ const App = () => {
   console.log('DATA', data);
 
   const handleAddToCart = (clickedItem: CartItemType) => null;
+
+  const handleRemoveFromCart = () => null;
 
   const getTotalItems = (items: CartItemType[]) => {
     items.reduce((accumulator: number, item) => accumulator + item.amount, 0);
@@ -32,7 +35,11 @@ const App = () => {
         open={cartIsOpen}
         onClose={() => setCartIsOpen(false)}
       >
-        Cart goes here
+        <Cart
+          cartItems={cartItems}
+          addToCart={handleAddToCart}
+          removeFromCart={handleRemoveFromCart}
+        />
       </Drawer>
       <StyledButton onClick={() => setCartIsOpen(true)} />
       <Badge badgeContent={() => getTotalItems(cartItems)} color="error">
