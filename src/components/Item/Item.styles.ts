@@ -4,24 +4,18 @@ export const ItemWrapper = styled.div`
   display: flex;
   justify-content: space-around;
   flex-direction: column;
-  border: 1px solid lightgrey;
-  border-radius: 20px;
   width: 100%;
-  height: 100%;
 
-  button {
-    border-radius: 0 0 20px 20px;
+  .root {
+    max-width: 345;
   }
 
-  img {
-    max-height: 500px;
-    object-fit: cover;
-    border-radius: 20px 20px 0 0;
+  .book-details {
+    height: 200px;
   }
 
-  div {
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 1rem;
-    height: 100%;
+  .button {
+    justify-self: flex-end;
+    margin-left: auto;
   }
 `;

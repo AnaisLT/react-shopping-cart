@@ -1,7 +1,6 @@
 import { Button, Typography } from '@material-ui/core';
 //Types
 import { CartItemType } from '../../models/CartItem';
-import Item from '../Item/Item';
 //Styles
 import { CartItemWrapper } from './CartItem.styles';
 
@@ -17,13 +16,15 @@ const CartItem: React.FC<CartItemProps> = ({
   removeFromCart,
 }) => (
   <CartItemWrapper>
-    <Typography variant="h3">{item.title}</Typography>
     <div>
-      <Typography variant="body1">Price: £{item.price}</Typography>
-      <Typography variant="body1">
-        Total: £{(item.amount * item.price).toFixed(2)}
-      </Typography>
-      <div>
+      <Typography variant="h4">{item.title}</Typography>
+      <div className="information">
+        <Typography variant="body1">Price: £{item.price}</Typography>
+        <Typography variant="body1">
+          Total: £{(item.amount * item.price).toFixed(2)}
+        </Typography>
+      </div>
+      <div className="buttons">
         <Button
           size="small"
           disableElevation
@@ -42,8 +43,8 @@ const CartItem: React.FC<CartItemProps> = ({
           +
         </Button>
       </div>
-      <img src={item.image} alt={item.title} />
     </div>
+    <img src={item.image} alt={item.title} />
   </CartItemWrapper>
 );
 
