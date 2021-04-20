@@ -1,4 +1,4 @@
-import Buttom, { Typography } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import CartItem from '../CartItem/CartItem';
 //Types
 import { CartItemType } from '../../models/CartItem';
@@ -16,9 +16,12 @@ const Cart: React.FC<CartProps> = ({
   addToCart,
   removeFromCart,
 }) => {
+  const calculateTotal = (items: CartItemType[]) =>
+    items.reduce((acc: number, item) => acc + item.amount * item.price, 0);
+
   return (
     <CartWrapper>
-      <Typography variant="h2">Your Shopping Cart</Typography>
+      <Typography variant="h4">Your Shopping Cart</Typography>
       {cartItems.length === 0 ? (
         <Typography variant="body2">No items in cart</Typography>
       ) : null}
@@ -30,6 +33,9 @@ const Cart: React.FC<CartProps> = ({
           removeFromCart={removeFromCart}
         />
       ))}
+      <Typography variant="body1">
+        Total: £${calculateTotal(cartItems).toFixed(2)}
+      </Typography>
     </CartWrapper>
   );
 };
