@@ -1475,6 +1475,16 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@fontsource/amatic-sc@^4.2.3":
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/@fontsource/amatic-sc/-/amatic-sc-4.2.3.tgz#f2098b24f043dac1b0bc2b2d415d98764c772168"
+  integrity sha512-KeGDgVx58c3P0f7PaFoZjwDXfQv9w0udYwfxszNm6B+tfJ7qkE5+2o2FdhX9UR6+NMw0px0f1IRxVNH9u5JRqg==
+
+"@fontsource/space-grotesk@^4.2.2":
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/@fontsource/space-grotesk/-/space-grotesk-4.2.2.tgz#fbbf64227b215e8a18dc77d0cf25937d7661a1db"
+  integrity sha512-ODOOn/wlA3QMmDg71zr4hNqDlD89+SnpUCuR8iiIH0Fz3nEiZ0wjNww8NW914oszUxibRLkn+6O/q4wBFOq0cg==
+
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@hapi/address/-/address-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"
