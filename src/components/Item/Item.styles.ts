@@ -17,5 +17,13 @@ export const ItemWrapper = styled.div`
   .button {
     justify-self: flex-end;
     margin-left: auto;
+    font-weight: 500;
+    color: #9db6cc;
+    border: 2px solid #9db6cc;
+
+    &:hover {
+      background-color: #9db6cc;
+      color: white;
+    }
   }
 `;

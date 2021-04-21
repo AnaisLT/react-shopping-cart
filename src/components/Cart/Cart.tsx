@@ -34,7 +34,7 @@ const Cart: React.FC<CartProps> = ({
         />
       ))}
       <Typography variant="body1">
-        Total: £${calculateTotal(cartItems).toFixed(2)}
+        Total: £{calculateTotal(cartItems).toFixed(2)}
       </Typography>
     </CartWrapper>
   );

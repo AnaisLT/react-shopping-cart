@@ -3,14 +3,14 @@ import { useQuery } from 'react-query';
 import {
   AppBar,
   Badge,
+  IconButton,
   Drawer,
   Grid,
   LinearProgress,
   Toolbar,
   Typography,
 } from '@material-ui/core';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { AccountCircle, ShoppingCart, Close } from '@material-ui/icons';
 
 import {
   Wrapper,
@@ -30,7 +30,10 @@ const ShopPage: React.FC = () => {
     'Books',
     fetchBooks
   );
-  console.log('DATA', data);
+
+  const handleDrawerClose = () => {
+    setCartIsOpen(false);
+  };
 
   const handleAddToCart = (clickedItem: CartItemType) => {
     // Check previous state
@@ -73,15 +76,15 @@ const ShopPage: React.FC = () => {
   return (
     <>
       <AppBarWrapper>
-        <AppBar position="static">
+        <AppBar className="appbar" position="static">
           <Toolbar className="toolbar">
             <Typography className="title" variant="h6" noWrap>
-              Anais' Library
+              BOOKWORM
             </Typography>
             <AppBarActions>
               <StyledButton onClick={() => setCartIsOpen(true)}>
                 <Badge badgeContent={getTotalItems(cartItems)} color="error">
-                  <ShoppingCartIcon />
+                  <ShoppingCart />
                 </Badge>
               </StyledButton>
               <StyledButton
@@ -101,6 +104,9 @@ const ShopPage: React.FC = () => {
           open={cartIsOpen}
           onClose={() => setCartIsOpen(false)}
         >
+          <div className="drawerHeader">
+            <IconButton onClick={handleDrawerClose}>{<Close />}</IconButton>
+          </div>
           <Cart
             cartItems={cartItems}
             addToCart={handleAddToCart}
@@ -109,7 +115,7 @@ const ShopPage: React.FC = () => {
         </Drawer>
         <Grid container spacing={2}>
           {data?.map((item) => (
-            <Grid item key={item.id} xs={12} md={4} sm={4}>
+            <Grid item key={item.id} xs={12} sm={4}>
               <Item item={item} handleAddToCart={handleAddToCart} />
             </Grid>
           ))}
